@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 1: Cálculo de Edad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 1: Cálculo de Edad</h1>
+        <form id="fechaForm">
+            <label for="fechaNacimiento">Ingrese su fecha de nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <button type="button" onclick="calcularEdad()">Calcular</button>
+        </form>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function calcularEdad() {
+            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            const fechaActual = new Date();
+            
+            const diferenciaTiempo = fechaActual - fechaNacimiento;
+            const dias = diferenciaTiempo / (1000 * 60 * 60 * 24); 
+            const meses = Math.floor(dias / 30); 
+            const años = Math.floor(meses / 12);
+            const minutos = Math.floor(dias * 24 * 60);
+            
+            document.getElementById('resultado').innerHTML = `
+                Edad: ${años} años <br>
+                Meses desde nacimiento: ${meses} <br>
+                Minutos desde nacimiento: ${minutos}
+            `;
+        }
+    </script>
+</body>
+</html>

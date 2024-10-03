@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 6: Nacimiento de Hermano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 6: Nacimiento de Hermano</h1>
+        <button type="button" onclick="calcularNacimientoHermano()">Calcular Fecha de Nacimiento</button>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function calcularNacimientoHermano() {
+            const semanas = 25;
+            const dias = semanas * 7;
+            const fechaActual = new Date();
+            const fechaNacimiento = new Date(fechaActual.getTime() + dias * 24 * 60 * 60 * 1000);
+
+            const dia = fechaNacimiento.getDate();
+            const mes = fechaNacimiento.getMonth() + 1; // Meses son de 0 a 11
+            const año = fechaNacimiento.getFullYear();
+
+            document.getElementById('resultado').innerHTML = `
+                La fecha probable de nacimiento será: ${dia}/${mes}/${año}
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 7: Curso de Guitarra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 7: Curso de Guitarra</h1>
+        <button type="button" onclick="calcularFinCurso()">Calcular Fecha de Finalización</button>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function calcularFinCurso() {
+            const semanasCurso = 160;
+            const dias = semanasCurso * 7;
+            const fechaInicioCurso = new Date('2021-01-01');
+            const fechaFinCurso = new Date(fechaInicioCurso.getTime() + dias * 24 * 60 * 60 * 1000);
+
+            const dia = fechaFinCurso.getDate();
+            const mes = fechaFinCurso.getMonth() + 1;
+            const año = fechaFinCurso.getFullYear();
+
+            document.getElementById('resultado').innerHTML = `
+                El curso finalizará el: ${dia}/${mes}/${año}
+            `;
+        }
+    </script>
+</body>
+</html>

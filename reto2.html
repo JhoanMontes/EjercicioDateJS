@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 2: Asteroide THANOS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 2: Asteroide THANOS</h1>
+        <button type="button" onclick="calcularImpacto()">Calcular Tiempo Restante</button>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function calcularImpacto() {
+            const fechaImpacto = new Date('2033-10-31');
+            const fechaActual = new Date();
+
+            const diferenciaTiempo = fechaImpacto - fechaActual;
+            const dias = diferenciaTiempo / (1000 * 60 * 60 * 24);
+            const meses = Math.floor(dias / 30);
+            const horas = Math.floor(dias * 24);
+
+            document.getElementById('resultado').innerHTML = `
+                Quedan: ${meses} meses <br>
+                Quedan: ${horas} horas
+            `;
+        }
+    </script>
+</body>
+</html>

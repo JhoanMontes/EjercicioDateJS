@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 3: Cronómetro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 3: Cronómetro</h1>
+        <button id="startBtn" onclick="startCronometro()">Iniciar</button>
+        <button id="stopBtn" onclick="stopCronometro()">Detener</button>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        let cronometroInterval;
+        let segundos = 0;
+
+        function startCronometro() {
+            cronometroInterval = setInterval(() => {
+                segundos++;
+                document.getElementById('resultado').innerHTML = `Segundos: ${segundos}`;
+            }, 1000);
+        }
+
+        function stopCronometro() {
+            clearInterval(cronometroInterval);
+        }
+    </script>
+</body>
+</html>

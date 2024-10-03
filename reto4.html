@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 4: Llegada a la tercera edad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reto 4: Llegada a la tercera edad</h1>
+        <form id="fechaForm">
+            <label for="fechaNacimiento">Ingrese su fecha de nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <button type="button" onclick="calcularTerceraEdad()">Calcular</button>
+        </form>
+        <div id="resultado"></div>
+        <a href="index.html" class="regresar">Volver al Inicio</a>
+    </div>
+
+    <script>
+        function calcularTerceraEdad() {
+            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+            const fechaActual = new Date();
+            
+            const diferenciaTiempo = fechaActual - fechaNacimiento; 
+            const dias = diferenciaTiempo / (1000 * 60 * 60 * 24); // Convertir milisegundos a días
+            const meses = Math.floor(dias / 30); // Aproximación para convertir días a meses
+            const años = Math.floor(meses / 12); // Convertir meses a años
+
+            const añosFaltantes = 60 - años;
+            const mesesFaltantes = añosFaltantes * 12;
+
+            if (añosFaltantes > 0) {
+                document.getElementById('resultado').innerHTML = `
+                    Te faltan ${mesesFaltantes} meses para llegar a la tercera edad.
+                `;
+            } else {
+                document.getElementById('resultado').innerHTML = `
+                    Ya has alcanzado o superado la tercera edad.
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
